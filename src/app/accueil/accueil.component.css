@@ -1,0 +1,64 @@
+.accueil-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 80vh;
+  outline: none;
+  user-select: none;
+}
+
+.profil-img {
+  width: 360px;
+  height: 360px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 1px solid #00bcd4;
+  box-shadow: 0 2px 16px #0006;
+  margin-bottom: 2.5rem;
+  outline: none;
+  user-select: none;
+}
+
+.profil-img:focus {
+  outline: none;
+}
+
+.btn-group {
+  display: flex;
+  gap: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.accueil-btn {
+  background: #222;
+  color: #00bcd4;
+  border: none;
+  border-radius: 8px;
+  padding: 0.9rem 2.2rem;
+  font-size: 1.1rem;
+  font-weight: 500;
+  text-decoration: none;
+  box-shadow: 0 2px 8px #0003;
+  transition: background 0.2s, color 0.2s, transform 0.2s;
+  cursor: pointer;
+  outline: none;
+  user-select: none;
+}
+
+.accueil-btn:hover {
+  background: #00bcd4;
+  color: #222;
+  transform: translateY(-2px) scale(1.05);
+}
+
+.contact-btn {
+  margin-top: 0.5rem;
+  background: #333;
+  color: #ff9800;
+}
+
+.contact-btn:hover {
+  background: #ff9800;
+  color: #222;
+}

@@ -1,0 +1,99 @@
+body {
+  background: #181818;
+  color: #f1f1f1;
+  font-family: 'Segoe UI', Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+nav {
+  background: #222;
+  padding: 1rem;
+  display: flex;
+  gap: 2rem;
+  border-bottom: 1px solid #333;
+}
+
+nav a {
+  color: #f1f1f1;
+  text-decoration: none;
+  font-weight: 500;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  transition: background 0.2s;
+}
+
+nav a.active,
+nav a:hover {
+  background: #333;
+  color: #00bcd4;
+}
+
+h2 {
+  color: #00bcd4;
+  margin-top: 2rem;
+}
+
+hr {
+  border: none;
+  border-bottom: 1px solid #333;
+  margin: 0;
+}
+
+main, .content {
+  padding: 2rem;
+}
+
+body, html {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.site-wrapper {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+main {
+  flex: 1 0 auto;
+  box-sizing: border-box;
+  padding: 0;
+}
+
+.accueil-container {
+  height: 100vh;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.site-footer {
+  background: #222;
+  color: #f1f1f1;
+  padding: 1.5rem 0;
+  text-align: center;
+  border-top: 1px solid #333;
+  margin-top: 2rem;
+  flex-shrink: 0;
+}
+
+.footer-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.7rem;
+  font-size: 1rem;
+}
+
+.footer-links a {
+  color: #00bcd4;
+  text-decoration: none;
+  margin: 0 0.3rem;
+  transition: color 0.2s;
+}
+
+.footer-links a:hover {
+  color: #ff9800;
+}

@@ -1,0 +1,212 @@
+.aboutme-container {
+  max-width: 700px;
+  margin: 3rem auto;
+  background: #222;
+  padding: 2rem 3rem;
+  border-radius: 12px;
+  box-shadow: 0 2px 12px #0004;
+  color: #f1f1f1;
+  font-size: 1.2rem;
+
+}
+
+.aboutme-container h2 {
+  color: #00bcd4;
+  margin-bottom: 1.5rem;
+}
+
+.aboutme-container p {
+  line-height: 1.7;
+  color: #f1f1f1;
+}
+
+/* Centrage vertical et horizontal de la page */
+.aboutme-page-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 80vh;
+  background: none;
+}
+
+/* Carte avec deux colonnes */
+.aboutme-card {
+  display: flex;
+  flex-direction: row;
+  background: #222;
+  border-radius: 20px;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.4);
+  padding: 2rem;
+  max-width: 1000px;
+  width: 100%;
+  gap: 2rem;
+}
+
+.aboutme-text {
+  flex: 2;
+  color: #f1f1f1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  font-size: 1.5rem;
+}
+
+.aboutme-image {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.aboutme-image img {
+  width: 360px;
+  height: 360px;
+  object-fit: cover;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.3);
+}
+
+@media (max-width: 700px) {
+  .aboutme-card {
+    flex-direction: column;
+    align-items: center;
+    padding: 1rem;
+    gap: 1rem;
+  }
+  .aboutme-image img {
+    width: 120px;
+    height: 120px;
+  }
+}
+
+.aboutme-container, .aboutme-card, .aboutme-text, .aboutme-image {
+  user-select: none;
+}
+
+.aboutme-technos-card {
+  margin: 10px auto;
+  max-width: 1000px;
+  height: 300px;
+  background: #222;
+  border-radius: 16px;
+  box-shadow: 0 2px 12px #0004;
+  padding: 2rem 1rem;
+  color: #f1f1f1;
+}
+
+.aboutme-technos-card h3 {
+  text-align: center;
+  margin-bottom: 1.5rem;
+  font-size: 1.6rem;
+  color: #00bcd4;
+}
+
+.aboutme-technos-scroll {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  position: relative;
+
+}
+
+.aboutme-arrow {
+  background: #222;
+  color: #00bcd4;
+  border: none;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  font-size: 2rem;
+  cursor: pointer;
+  box-shadow: 0 2px 8px #0006;
+  transition: background 0.2s, color 0.2s, transform 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2;
+}
+.aboutme-arrow:hover {
+  background: #00bcd4;
+  color: #222;
+  transform: scale(1.1);
+}
+
+.aboutme-technos-list {
+  height: 240px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 2rem;
+  overflow-x: auto;
+  padding-bottom: 1rem;
+  scrollbar-width: thin;
+  scrollbar-color: #00bcd4 #222;
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE 10+ */
+}
+.aboutme-technos-list::-webkit-scrollbar {
+  display: none; /* Chrome, Safari */
+}
+
+.aboutme-tech-card {
+  min-width: 140px;
+  max-width: 180px;
+  background: #181818;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px #0006;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 160px;
+  padding: 1rem 0.5rem;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.aboutme-tech-card a {
+  text-decoration: none;
+  color: inherit;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+.aboutme-tech-card:hover {
+  transform: translateY(-6px) scale(1.05);
+  box-shadow: 0 6px 24px #00bcd4aa;
+}
+
+.aboutme-tech-logo {
+  width: 64px;
+  height: 64px;
+  object-fit: contain;
+  margin-bottom: 0.5rem;
+}
+
+.aboutme-tech-name {
+  font-size: 1.1rem;
+  font-weight: 500;
+  text-align: center;
+  margin-top: 0.5rem;
+}
+
+@media (max-width: 700px) {
+  .aboutme-technos-list {
+    gap: 1rem;
+  }
+  .aboutme-tech-card {
+    min-width: 100px;
+    max-width: 120px;
+    padding: 0.5rem 0.2rem;
+  }
+  .aboutme-tech-logo {
+    width: 40px;
+    height: 40px;
+  }
+  .aboutme-tech-name {
+    font-size: 0.9rem;
+  }
+}
