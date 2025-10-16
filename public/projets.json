@@ -9,8 +9,8 @@
   {
     "title": "PGI Go",
     "image": "projects/pgi.png",
-    "technos": ["Go", "gRPC", "Docker", "PostgreSQL","GTK3","GOTK3"],
-    "description": "Une API performante développée en Go, utilisant gRPC pour la communication et Docker pour le déploiement."
+    "technos": ["Go", "gRPC", "PostgreSQL","GTK3","GOTK3"],
+    "description": "Dans le cadre de mon alternance, ma mission principale consiste à développer un Progiciel de Gestion Intégré (PGI) en utilisant le langage Go et le framework gRPC. Go, également connu sous le nom de Golang, est reconnu pour sa performance, sa concurrence efficace et sa simplicité de syntaxe, ce qui en fait un choix idéal pour la construction d'applications robustes. De son côté, gRPC, un framework performant développé par Google, permet la communication entre les services de manière rapide et sécurisée."
   },
   {
   "title": "Alloa.com",
@@ -26,14 +26,14 @@
     "image": "projects/checkpoint.png",
     "technos": ["react", "TypeScript", "CSS"],
     "link": "https://github.com/DarkWolf62/checkpoint_react",
-    "description": "Un portfolio moderne réalisé avec Angular, TypeScript et CSS. Il présente mes compétences, mes projets et permet de me contacter facilement."
+    "description": "Checkpoint est un projet de groupe ayant pour objectif de créer un réseau social moderne et interactif en utilisant React pour le front-end et TypeScript pour une meilleure robustesse et maintenabilité du code.\nL’application permet aux utilisateurs de se connecter, partager des publications, interagir avec leurs amis et gérer leur profil dans une interface claire et intuitive."
   },
   {
     "title": "API pour Réseau social ",
     "image": "projects/webservice.png",
     "technos": ["Java", "Spring", "PostgreSQL"],
     "link": "https://github.com/DarkWolf62/onlyfun_spring",
-    "description": "Une API performante développée en Go, utilisant gRPC pour la communication et Docker pour le déploiement."
+    "description": "Une API performante développée en java, utilisant Spring pour la création d'un réseau social."
   },
   {
   "title": "Raytracer java",
