@@ -1,0 +1,73 @@
+[
+  {
+    "title": "Portfolio Angular",
+    "image": "projects/portfolio.png",
+    "technos": ["Angular", "TypeScript", "CSS"],
+    "link": "https://github.com/DarkWolf62/portfolio_angular",
+    "description": "Un portfolio moderne réalisé avec Angular, TypeScript et CSS. Il présente mes compétences, mes projets et permet de me contacter facilement."
+  },
+  {
+    "title": "PGI Go",
+    "image": "projects/pgi.png",
+    "technos": ["Go", "gRPC", "PostgreSQL","GTK3","GOTK3"],
+    "description": "Dans le cadre de mon alternance, ma mission principale consiste à développer un Progiciel de Gestion Intégré (PGI) en utilisant le langage Go et le framework gRPC. Go, également connu sous le nom de Golang, est reconnu pour sa performance, sa concurrence efficace et sa simplicité de syntaxe, ce qui en fait un choix idéal pour la construction d'applications robustes. De son côté, gRPC, un framework performant développé par Google, permet la communication entre les services de manière rapide et sécurisée."
+  },
+  {
+  "title": "Alloa.com",
+  "image": "projects/alloa.png",
+  "technos": ["Python", "Pyramid", "HTML", "CSS", "JavaScript", "PostgreSQL"],
+  "link": "https://www.alloa.com/",
+  "description": "Pour ce projet j'avait pour but de corriger, améliorer et moderniser l’apparence visuelle du site afin d’offrir une expérience utilisateur plus professionnelle, claire et fluide, sur tous types d’appareils (ordinateurs, tablettes, smartphones). L'interface initiale, bien que fonctionnelle, manquait de cohérence graphique, de lisibilité et ne s’adaptait pas correctement aux écrans de petite taille."
+},
+
+
+  {
+    "title": "Réseau social \"checkpoint\"",
+    "image": "projects/checkpoint.png",
+    "technos": ["react", "TypeScript", "CSS"],
+    "link": "https://github.com/DarkWolf62/checkpoint_react",
+    "description": "Checkpoint est un projet de groupe ayant pour objectif de créer un réseau social moderne et interactif en utilisant React pour le front-end et TypeScript pour une meilleure robustesse et maintenabilité du code.\nL’application permet aux utilisateurs de se connecter, partager des publications, interagir avec leurs amis et gérer leur profil dans une interface claire et intuitive."
+  },
+  {
+    "title": "API pour Réseau social ",
+    "image": "projects/webservice.png",
+    "technos": ["Java", "Spring", "PostgreSQL"],
+    "link": "https://github.com/DarkWolf62/onlyfun_spring",
+    "description": "Une API performante développée en java, utilisant Spring pour la création d'un réseau social."
+  },
+  {
+  "title": "Raytracer java",
+  "image": "projects/raytracer.webp",
+  "technos": ["java"],
+  "link": "https://github.com/DarkWolf62/RaytracerLib",
+  "description": "Dans ce projet, on nous demandait de concevoir une bibliothèque de lancer de rayons afin de pouvoir générer les graphismes de leur toute dernière création. Plus précisément, notre bibliothèque devait permettre de prendre en entrée un fichier texte décrivant une image (une scène) et de produire une image correspondante."
+},
+  {
+    "title": "Galerie raytracer",
+    "image": "projects/galerie.webp",
+    "technos": ["PHP", "Laravel", "Sqlite", "HTML", "CSS"],
+    "description": "Dans ce projet, mon équipe et moi avons développé une application dont l’objectif est de gérer les images calculées par un raytracer précédemment mis en place."
+  },
+  {
+    "title": "FlatCraft",
+    "image": "projects/flatcraft.webp",
+    "technos": ["Go", "gRPC", "Docker"],
+    "link": "https://github.com/DarkWolf62/FlatCraft",
+    "description": "Mon équipe et moi devions implémenter en Java le jeu Flatcraft, une version simplifiée de Minecraft en 2D (ou encore Terraria). Le joueur explore un monde généré de manière aléatoire pour collecter des ressources, combattre des monstres et construire des objets et structures personnalisés. Dans ce projet, nous devions essentiellement mettre en place le modèle du jeu, la partie graphique (y compris le contrôleur) ainsi que la gestion des différents événements du jeu."
+  },
+  {
+    "title": "Jeu Godot",
+    "image": "logo/godot.png",
+    "technos": ["Godot", "GDScript"],
+    "link": "https://github.com/ton-github/jeu-godot",
+    "description": "Un jeu vidéo créé avec le moteur Godot et le langage GDScript, mettant en avant la créativité et la logique."
+  },
+  {
+    "title": "bot discord",
+    "image": "projects/botdiscord.webp",
+    "technos": ["Angular", "TypeScript", "CSS"],
+    "link": "https://github.com/DarkWolf62/botIsekai",
+    "description": "Ce projet est un bot Discord écrit en Go, conçu pour offrir une expérience immersive dans un monde fantastique. Ce projet vise à offrir une expérience de jeu interactive et engageante aux utilisateurs de Discord, en les plongeant dans un univers riche et détaillé."
+  }
+]
+
