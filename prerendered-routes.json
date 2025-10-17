@@ -1,8 +1,8 @@
 {
   "routes": {
-    "/DarkWolf62/portfolio_angular": {},
-    "/DarkWolf62/portfolio_angular/about": {},
-    "/DarkWolf62/portfolio_angular/contact": {},
-    "/DarkWolf62/portfolio_angular/projets": {}
+    "/portfolio_angular": {},
+    "/portfolio_angular/about": {},
+    "/portfolio_angular/contact": {},
+    "/portfolio_angular/projets": {}
   }
 }
