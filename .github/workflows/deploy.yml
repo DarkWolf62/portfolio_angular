@@ -37,6 +37,21 @@ jobs:
       - name: List build output (debug)
         run: ls -la dist || echo "dist/ directory not found"
 
+      - name: Flatten `browser` output if present
+        # Si Angular SSR produit un sous-dossier `browser` (ex: dist/.../browser), on copie son contenu à la racine de output-path
+        run: |
+          if [ -d "dist/portfolio_angular/browser" ]; then
+            echo "Found browser folder, copying its content to dist/portfolio_angular/";
+            cp -r dist/portfolio_angular/browser/. dist/portfolio_angular/ || true;
+            echo "Copy done.";
+          else
+            echo "No browser folder detected, nothing to copy.";
+          fi
+
+      - name: Verify final publish dir (debug)
+        run: |
+          ls -la dist/portfolio_angular || echo "publish dir missing: dist/portfolio_angular"
+
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
@@ -46,3 +61,4 @@ jobs:
           # personal_token: ${{ secrets.GH_PAGES_TOKEN }}
           publish_dir: ./dist/portfolio_angular
           publish_branch: gh-pages
+          # (keep_history option removed to avoid static-checker warning)
