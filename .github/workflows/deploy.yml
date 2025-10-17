@@ -1,5 +1,11 @@
 name: Build and Deploy to GitHub Pages
 
+# Donner explicitement les permissions nécessaires pour écrire dans la branche
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
 on:
   push:
     branches:
@@ -28,9 +34,15 @@ jobs:
         # On force la sortie dans dist/portfolio_angular et on met le base-href
         run: npm run build -- --output-path=dist/portfolio_angular --base-href=/portfolio_angular/
 
+      - name: List build output (debug)
+        run: ls -la dist || echo "dist/ directory not found"
+
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
+          # Par défaut on utilise le GITHUB_TOKEN fourni par GitHub Actions (doit fonctionner si le workflow a les permissions 'contents: write' et 'pages: write')
           github_token: ${{ secrets.GITHUB_TOKEN }}
+          # Si tu préfères utiliser un Personal Access Token (ex: pour pousser sur un repo parent/fork), crée un secret GH_PAGES_TOKEN et décommente la ligne ci-dessous
+          # personal_token: ${{ secrets.GH_PAGES_TOKEN }}
           publish_dir: ./dist/portfolio_angular
-
+          publish_branch: gh-pages
