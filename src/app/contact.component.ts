@@ -13,7 +13,7 @@ import { Inject as _Inject } from '@angular/core';
         <span>nicolasnourry61&#64;gmail.com</span>
       </a>
       <div class="contact-cards">
-        <a class="contact-card" href="https://github.com/ton-github" target="_blank" rel="noopener">
+        <a class="contact-card" href="https://github.com/DarkWolf62" target="_blank" rel="noopener">
           <img class="icon" [src]="baseHref + 'logo/github.png'" alt="GitHub" />
           <span>GitHub</span>
         </a>
@@ -21,7 +21,7 @@ import { Inject as _Inject } from '@angular/core';
           <img class="icon" [src]="baseHref + 'logo/discord.png'" alt="Discord" />
           <span>Discord</span>
         </a>
-        <a class="contact-card" href="https://linkedin.com/in/ton-linkedin" target="_blank" rel="noopener">
+        <a class="contact-card" href="https://linkedin.com/in/nicolas-nourrry1" target="_blank" rel="noopener">
           <img class="icon" [src]="baseHref + 'logo/linkedin.png'" alt="LinkedIn" />
           <span>LinkedIn</span>
         </a>

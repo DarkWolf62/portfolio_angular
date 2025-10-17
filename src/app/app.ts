@@ -40,9 +40,28 @@ export class App {
   protected readonly title = signal('portfolio');
 
   getAnimationState(outlet: any): number {
-    if (!outlet || !outlet.isActivated) {
+    // Si l'outlet n'est pas activé, on remonte quand même en haut.
+    if (!outlet?.isActivated) {
+      if (typeof globalThis !== 'undefined' && 'window' in globalThis) {
+        try {
+          (globalThis as any).window.scrollTo({ top: 0, left: 0, behavior: 'auto' });
+        } catch {
+          // fallback for older browsers/environments
+          (globalThis as any).window.scrollTo(0, 0);
+        }
+      }
       return 0;
     }
+
+    // Toujours remonter en haut avant de renvoyer l'état d'animation
+    if (typeof globalThis !== 'undefined' && 'window' in globalThis) {
+      try {
+        (globalThis as any).window.scrollTo({ top: 0, left: 0, behavior: 'auto' });
+      } catch {
+        (globalThis as any).window.scrollTo(0, 0);
+      }
+    }
+
     const route = outlet.activatedRoute?.routeConfig?.path;
     switch (route) {
       case '': return 0; // Accueil
