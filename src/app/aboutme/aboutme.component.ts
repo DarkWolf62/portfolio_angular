@@ -1,5 +1,5 @@
-import { Component, ViewChild, ElementRef } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { Component, ViewChild, ElementRef, Inject, PLATFORM_ID } from '@angular/core';
+import { CommonModule, DOCUMENT, isPlatformBrowser } from '@angular/common';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 
 @Component({
@@ -24,7 +24,7 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
           </p>
         </div>
         <div class="aboutme-image">
-          <img src="bureau_pc.png" alt="Photo de bureau avec pc"/>
+          <img [src]="baseHref + 'bureau_pc.png'" alt="Photo de bureau avec pc"/>
         </div>
       </div>
     </div>
@@ -37,7 +37,7 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
         <div class="aboutme-technos-list" #technosList>
           <div *ngFor="let tech of technos" class="aboutme-tech-card">
             <a [href]="tech.link" target="_blank" rel="noopener noreferrer">
-              <img [src]="tech.logo" [alt]="tech.name" class="aboutme-tech-logo" />
+              <img [src]="baseHref + tech.logo" [alt]="tech.name" class="aboutme-tech-logo" />
               <div class="aboutme-tech-name">{{ tech.name }}</div>
             </a>
           </div>
@@ -53,11 +53,25 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
 export class AboutMeComponent {
   technos: any[] = [];
   @ViewChild('technosList') technosList!: ElementRef<HTMLDivElement>;
+  baseHref = '/';
+  isBrowser = false;
 
-  constructor(private http: HttpClient) {
-    this.http.get<any[]>('technos.json').subscribe(data => {
-      this.technos = data;
-    });
+  constructor(private http: HttpClient, @Inject(DOCUMENT) private document: Document, @Inject(PLATFORM_ID) private platformId: Object) {
+    // Récupère le base href défini par <base href="..."> (fonctionne en SSR et client)
+    try {
+      const baseEl = this.document?.querySelector('base');
+      this.baseHref = baseEl?.getAttribute('href') ?? '/';
+    } catch (e) {
+      this.baseHref = '/';
+    }
+
+    this.isBrowser = isPlatformBrowser(this.platformId);
+    // N'effectuer la requête technos.json uniquement côté client pour éviter les erreurs au prerender
+    if (this.isBrowser) {
+      this.http.get<any[]>(this.baseHref + 'technos.json').subscribe(data => {
+        this.technos = data;
+      });
+    }
   }
 
   scrollTechnos(direction: number) {

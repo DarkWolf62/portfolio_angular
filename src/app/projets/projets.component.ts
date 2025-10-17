@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { Component, OnInit, Inject, PLATFORM_ID } from '@angular/core';
+import { CommonModule, DOCUMENT, isPlatformBrowser } from '@angular/common';
 import { HttpClientModule, HttpClient } from '@angular/common/http';
+import { DOCUMENT as DOC_TOKEN } from '@angular/common';
 
 @Component({
   selector: 'app-projets',
@@ -13,13 +14,26 @@ export class ProjetsComponent implements OnInit {
   projets: any[] = [];
   selectedProjet: any = null;
   isModalOpen: boolean = false;
+  baseHref = '/';
+  isBrowser = false;
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient, @Inject(DOC_TOKEN) private document: Document, @Inject(PLATFORM_ID) private platformId: Object) {}
 
   ngOnInit() {
-    this.http.get<any[]>('/projets.json').subscribe(data => {
-      this.projets = data;
-    });
+    try {
+      const baseEl = this.document?.querySelector('base');
+      this.baseHref = baseEl?.getAttribute('href') ?? '/';
+    } catch (e) {
+      this.baseHref = '/';
+    }
+
+    this.isBrowser = isPlatformBrowser(this.platformId);
+    // N'effectuer la requête que côté client pour éviter les erreurs lors du prerender
+    if (this.isBrowser) {
+      this.http.get<any[]>(this.baseHref + 'projets.json').subscribe(data => {
+        this.projets = data;
+      });
+    }
   }
 
   openModal(projet: any) {

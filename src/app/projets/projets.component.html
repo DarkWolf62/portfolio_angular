@@ -2,7 +2,7 @@
   <h2>Projets</h2>
   <div class="projets-list">
     <div class="projet-card" *ngFor="let projet of projets" (click)="openModal(projet)">
-      <img [src]="projet.image" alt="{{projet.title}}" class="projet-image" />
+      <img [src]="baseHref + projet.image" alt="{{projet.title}}" class="projet-image" />
       <h3>{{projet.title}}</h3>
       <div class="projet-technos">
         <span *ngFor="let techno of projet.technos.slice(0,3)" class="projet-tech">#{{techno}}</span>
@@ -17,7 +17,7 @@
       <button class="close-btn" (click)="closeModal()">&times;</button>
       <div class="modal-flex-row">
         <div class="modal-left">
-          <img *ngIf="selectedProjet?.image" [src]="selectedProjet.image" alt="{{selectedProjet.title}}" class="modal-image" />
+          <img *ngIf="selectedProjet?.image" [src]="baseHref + selectedProjet.image" alt="{{selectedProjet.title}}" class="modal-image" />
         </div>
         <div class="modal-right">
           <h2>{{selectedProjet?.title}}</h2>
