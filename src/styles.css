@@ -45,10 +45,9 @@ hr {
   margin: 0;
 }
 
+/* unified padding for main/content to avoid overwriting shorthand warnings */
 main, .content {
-  padding-top: 80px; /* hauteur estimée de la navbar */
-  padding-bottom: 80px; /* hauteur estimée du footer */
-  padding: 2rem;
+  padding: 80px 2rem; /* padding-top:80px and left/right 2rem and padding-bottom:80px */
 }
 
 form {
@@ -115,7 +114,11 @@ button[type="submit"]:hover {
   list-style: none;
   padding: 0;
   margin: 2rem auto;
-  max-width: 400px;
+  width: 100%;
+  max-width: 400px; /* constraint on large screens */
+  /* responsive tweaks merged here */
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
 }
 
 .contact-list li {
@@ -232,3 +235,119 @@ footer {
   position: relative;
   min-height: 400px;
   }
+
+/* Responsive enhancements -------------------------------------------------- */
+
+/* Make images and icons fluid */
+img, .projet-image, .modal-image, .contact-card .icon, .contact-mail .icon {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Constrain site width and center it */
+.site-wrapper {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+/* Footer content layout helper (used in app.html) */
+.footer-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Projets grid: allow cards to become percentage width on smaller screens */
+.projet-card {
+  width: 260px; /* default desktop */
+}
+
+@media (max-width: 900px) {
+  .projets-list {
+    gap: 1rem;
+  }
+  .projet-card {
+    width: calc(50% - 1rem);
+  }
+  .modal-content {
+    width: 98vw;
+    max-width: 98vw;
+    padding: 1rem;
+  }
+  .modal-left {
+    flex: 0 0 100%;
+  }
+  .modal-flex-row {
+    flex-direction: column;
+    gap: 1rem;
+    align-items: center;
+  }
+  .modal-right {
+    align-items: center;
+    text-align: center;
+    min-width: unset;
+  }
+  .site-footer {
+    position: relative;
+  }
+}
+
+@media (max-width: 700px) {
+  .projet-card {
+    width: 100%;
+    padding: 1rem;
+  }
+  .contact-cards {
+    flex-direction: column;
+    gap: 1rem;
+  }
+  nav {
+    justify-content: center;
+  }
+  nav a {
+    flex: 1 0 auto;
+    text-align: center;
+  }
+  .router-animation-container {
+    min-height: 300px;
+  }
+}
+
+@media (max-width: 480px) {
+  h2 {
+    font-size: 1.35rem;
+  }
+  .projet-image {
+    height: 120px;
+  }
+  .modal-content {
+    padding: 0.75rem;
+  }
+  .site-footer {
+    padding: 0.75rem;
+  }
+  body {
+    font-size: 15px;
+  }
+}
+
+/* Ensure long text breaks on small screens */
+.footer-links, .contact-list a {
+  word-break: break-word;
+}
+
+/* Allow the navbar to remain accessible visually on very narrow viewports */
+@media (max-width: 360px) {
+  nav a {
+    padding: 0.4rem 0.5rem;
+    font-size: 0.95rem;
+  }
+}
+
+/* End responsive enhancements */

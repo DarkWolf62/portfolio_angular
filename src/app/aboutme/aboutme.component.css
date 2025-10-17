@@ -78,6 +78,47 @@
   }
 }
 
+/* New responsive tweaks */
+@media (max-width: 480px) {
+  .aboutme-container {
+    padding: 1rem 0.75rem;
+    margin: 1.25rem;
+    font-size: 1rem;
+  }
+  .aboutme-text {
+    font-size: 1.05rem;
+  }
+  .aboutme-image img {
+    width: 100px;
+    height: 100px;
+  }
+  .aboutme-card {
+    padding: 0.75rem;
+    gap: 0.75rem;
+  }
+  .aboutme-technos-card {
+    height: auto; /* allow wrapping vertically on small screens */
+    padding: 1rem;
+  }
+  .aboutme-technos-list {
+    gap: 0.75rem;
+  }
+  .aboutme-tech-card {
+    min-width: 90px;
+    max-width: 110px;
+    height: 120px;
+    padding: 0.5rem 0.4rem;
+  }
+  .aboutme-tech-logo {
+    width: 36px;
+    height: 36px;
+  }
+  .aboutme-tech-name {
+    font-size: 0.85rem;
+  }
+}
+
+/* preserve user-select rule */
 .aboutme-container, .aboutme-card, .aboutme-text, .aboutme-image {
   user-select: none;
 }
@@ -131,6 +172,17 @@
   transform: scale(1.1);
 }
 
+/* NEW: prevent native tap/focus behaviors that can cause page jump on mobile */
+.aboutme-arrow {
+  -webkit-tap-highlight-color: transparent; /* hide tap highlight */
+  user-select: none;
+  touch-action: manipulation; /* prefer browser not to treat this as a pan/zoom */
+  outline: none; /* no outline on click; focus style kept via :focus-visible if desired */
+}
+.aboutme-arrow:focus-visible {
+  box-shadow: 0 0 0 3px rgba(0,188,212,0.18); /* visible focus only for keyboard users */
+}
+
 .aboutme-technos-list {
   height: 240px;
   display: flex;
@@ -139,9 +191,9 @@
   gap: 2rem;
   overflow-x: auto;
   padding-bottom: 1rem;
-  scrollbar-width: thin;
+  /* Hide native scrollbar where possible; keep colors as fallback */
   scrollbar-color: #00bcd4 #222;
-  scrollbar-width: none; /* Firefox */
+  scrollbar-width: none; /* Firefox: hide scrollbar */
   -ms-overflow-style: none; /* IE 10+ */
 }
 .aboutme-technos-list::-webkit-scrollbar {

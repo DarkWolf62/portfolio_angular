@@ -12,6 +12,19 @@ nav {
   display: flex;
   gap: 2rem;
   border-bottom: 1px solid #333;
+  /* Responsive: allow wrapping and horizontal scroll on very small screens */
+  flex-wrap: wrap;
+  justify-content: center;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* Make nav and footer full-bleed (background spans the viewport) while keeping content centered inside the .site-wrapper */
+nav, .site-footer, footer {
+  width: 100vw;
+  margin-left: calc(50% - 50vw);
+  margin-right: calc(50% - 50vw);
+  box-sizing: border-box;
 }
 
 nav a {
@@ -21,6 +34,7 @@ nav a {
   padding: 0.5rem 1rem;
   border-radius: 4px;
   transition: background 0.2s;
+  white-space: nowrap;
 }
 
 nav a.active,
@@ -41,7 +55,8 @@ hr {
 }
 
 main, .content {
-  padding: 2rem;
+  /* Harmonisé avec styles.css pour éviter conflits et garder padding pour navbar/footer */
+  padding: 80px 1rem;
 }
 
 body, html {

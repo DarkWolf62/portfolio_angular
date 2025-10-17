@@ -62,3 +62,39 @@
   background: #ff9800;
   color: #222;
 }
+
+/* Responsive tweaks for mobile */
+@media (max-width: 700px) {
+  .accueil-container {
+    height: auto; /* allow content to flow naturally on small screens */
+    padding: 2rem 1rem;
+  }
+  .profil-img {
+    width: 180px;
+    height: 180px;
+    margin-bottom: 1.5rem;
+  }
+  .btn-group {
+    flex-direction: column;
+    width: 100%;
+    gap: 1rem;
+    align-items: center;
+  }
+  .accueil-btn {
+    width: 100%;
+    max-width: 320px;
+    padding: 0.85rem 1rem;
+    text-align: center;
+  }
+}
+
+@media (max-width: 420px) {
+  .profil-img {
+    width: 140px;
+    height: 140px;
+  }
+  .accueil-btn {
+    font-size: 1rem;
+    padding: 0.7rem 0.9rem;
+  }
+}

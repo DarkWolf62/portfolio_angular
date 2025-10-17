@@ -31,9 +31,10 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
     <div class="aboutme-technos-card">
       <h3>Technologies utilisées</h3>
       <div class="aboutme-technos-scroll">
-        <button class="aboutme-arrow left" (click)="scrollTechnos(-1)" aria-label="Précédent">
+        <button type="button" class="aboutme-arrow left" aria-label="Précédent" (click)="scrollTechnos(-1)">
           &#8592;
         </button>
+
         <div class="aboutme-technos-list" #technosList>
           <div *ngFor="let tech of technos" class="aboutme-tech-card">
             <a [href]="tech.link" target="_blank" rel="noopener noreferrer">
@@ -42,7 +43,7 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
             </a>
           </div>
         </div>
-        <button class="aboutme-arrow right" (click)="scrollTechnos(1)" aria-label="Suivant">
+        <button type="button" class="aboutme-arrow right" (click)="scrollTechnos(1);$event.preventDefault()" aria-label="Suivant" >
           &#8594;
         </button>
       </div>
