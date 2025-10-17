@@ -24,7 +24,7 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
           </p>
         </div>
         <div class="aboutme-image">
-          <img src="/bureau_pc.png" alt="Photo de bureau avec pc"/>
+          <img src="bureau_pc.png" alt="Photo de bureau avec pc"/>
         </div>
       </div>
     </div>
@@ -55,7 +55,7 @@ export class AboutMeComponent {
   @ViewChild('technosList') technosList!: ElementRef<HTMLDivElement>;
 
   constructor(private http: HttpClient) {
-    this.http.get<any[]>('/technos.json').subscribe(data => {
+    this.http.get<any[]>('technos.json').subscribe(data => {
       this.technos = data;
     });
   }
