@@ -7,7 +7,7 @@ import {NgOptimizedImage} from '@angular/common';
   standalone: true,
   template: `
     <div class="accueil-container">
-      <img ngSrc="/profil.png" alt="Photo de profil" class="profil-img" height="3162" width="3162"/>
+      <img ngSrc="profil.png" alt="Photo de profil" class="profil-img" height="3162" width="3162"/>
       <div class="btn-group">
         <a routerLink="about" class="accueil-btn">En savoir plus</a>
         <a routerLink="projets" class="accueil-btn">Mes projets</a>
