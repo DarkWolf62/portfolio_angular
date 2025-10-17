@@ -54,15 +54,22 @@
   align-items: center;
   justify-content: center;
   z-index: 1000;
+  /* Respect safe area and provide padding so modal never touches screen edges */
+  padding: env(safe-area-inset-top, 1rem) env(safe-area-inset-right, 1rem) env(safe-area-inset-bottom, 1rem) env(safe-area-inset-left, 1rem);
 }
 .modal-content {
   background: #23272f;
   border-radius: 1rem;
   padding: 2rem;
   box-shadow: 0 4px 24px rgba(0,0,0,0.5);
-  width: 75vw;
+  /* Use auto width with max and allow margin so modal never touches viewport edges */
+  width: auto;
   max-width: 1200px;
-  min-width: 320px;
+  box-sizing: border-box;
+  margin: 1.5rem; /* ensures gap on small screens */
+  /* Ensure modal doesn't exceed viewport height and becomes scrollable internally */
+  max-height: calc(100vh - 3rem);
+  overflow: auto;
   position: relative;
   display: flex;
   flex-direction: column;
@@ -79,9 +86,13 @@
   cursor: pointer;
 }
 .modal-image {
-  width: 100%;
+  width: auto; /* do not force full width - preserve natural aspect ratio */
+  max-width: 100%; /* never exceed container */
   max-width: 500px;
-  height: auto;
+  height: auto; /* keep aspect ratio */
+  max-height: calc(70vh); /* prevent overly tall images on mobile */
+  object-fit: contain; /* preserve aspect ratio and fit within box */
+  display: block;
   border-radius: 0.5rem;
   background: #1a1d23;
   box-shadow: 0 2px 8px rgba(0,0,0,0.3);
@@ -122,9 +133,6 @@
   margin-bottom: 0.5rem;
 }
 .modal-right p {
-  margin-bottom: 1rem;
-}
-.modal-technos {
   margin-bottom: 1rem;
 }
 .modal-flex-row {
@@ -182,12 +190,25 @@
 }
 @media (max-width: 700px) {
   .modal-content {
-    max-width: 98vw;
+    /* Ensure modal keeps breathing space from viewport edges */
+    max-width: calc(100% - 2rem);
+    /* combine margins to keep consistent spacing (top/bottom smaller than left/right)
+       so modal doesn't touch edges on small screens */
+    margin: 0.5rem 1rem;
     padding: 1rem;
   }
+  /* On very small screens prefer the modal near the top with breathing space */
+  .modal-overlay {
+    align-items: flex-start;
+    padding-top: calc(env(safe-area-inset-top, 1rem) + 0.5rem);
+    padding-bottom: calc(env(safe-area-inset-bottom, 1rem) + 0.5rem);
+  }
   .modal-image {
-    width: 120px;
-    height: 120px;
+    width: auto;
+    max-width: 120px;
+    height: auto; /* do not force square */
+    max-height: 140px;
+    object-fit: contain;
   }
   .modal-left {
     flex: 0 0 120px;
@@ -195,12 +216,15 @@
 }
 @media (max-width: 900px) {
   .modal-content {
-    width: 98vw;
-    max-width: 98vw;
+    max-width: calc(100% - 2rem);
+    margin: 1rem;
     padding: 1rem;
   }
   .modal-image {
+    width: auto;
     max-width: 100vw;
+    height: auto;
+    object-fit: contain;
   }
   .modal-left {
     flex: 0 0 100%;
@@ -214,5 +238,27 @@
     align-items: center;
     text-align: center;
     min-width: unset;
+  }
+}
+@media (max-width: 480px) {
+  /* Slightly reduce modal image size on small phones to avoid overflow */
+  .modal-image {
+    width: auto;
+    max-width: 85%;
+    max-height: 50vh;
+    height: auto;
+    object-fit: contain;
+  }
+
+  /* Tweak modal spacing so it never touches edges on very small screens */
+  .modal-content {
+    max-width: calc(100% - 1.2rem);
+    margin: 0.4rem 0.6rem;
+    padding: 0.75rem;
+  }
+
+  /* Ensure left column doesn't force large width */
+  .modal-left {
+    flex: 0 0 auto;
   }
 }
