@@ -9,6 +9,6 @@ export default `<!doctype html>
 <style>body{background:#181818;color:#f1f1f1;font-family:Segoe UI,Arial,sans-serif;margin:0;padding:0}</style><link rel="stylesheet" href="styles-HA6VLRVR.css" media="print" onload="this.media='all'"><noscript><link rel="stylesheet" href="styles-HA6VLRVR.css"></noscript></head>
 <body ngcm="">
   <app-root></app-root>
-<script src="polyfills-5CFQRCPP.js" type="module"></script><script src="main-E2GX2A23.js" type="module"></script></body>
+<script src="polyfills-5CFQRCPP.js" type="module"></script><script src="main-LYINHGLT.js" type="module"></script></body>
 </html>
 `;
